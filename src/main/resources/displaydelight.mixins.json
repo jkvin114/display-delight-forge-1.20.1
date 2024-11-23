@@ -2,7 +2,7 @@
   "required": false,
   "package": "com.jkvin114.displaydelight.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "display.refmap.json",
+  "refmap": "mixins.displaydelight.refmap.json",
   "client": [
     "ItemMixin"
   ],

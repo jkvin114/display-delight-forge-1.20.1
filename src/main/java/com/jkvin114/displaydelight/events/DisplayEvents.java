@@ -54,6 +54,13 @@ public class DisplayEvents {
     @SubscribeEvent
     public static void onCheck(PlayerInteractEvent.RightClickBlock event) {
 
+        if (event.getLevel() instanceof ServerLevel slevel
+                && event.getHand() == InteractionHand.MAIN_HAND && event.getItemStack().isEmpty()) {
+
+            InterationManager.tryTakeItemWithBareHand(event.getEntity(), slevel, event.getHitVec());
+            return;
+        }
+
         if(!(event.getLevel() instanceof ServerLevel level)) {
             BlockPos pos = event.getHitVec().getBlockPos();
             BlockState state = event.getLevel().getBlockState(pos);
@@ -66,6 +73,7 @@ public class DisplayEvents {
             }
             return;
         }
+
         boolean placed = false;
 
         if(event.getItemStack().is(DisplayTags.SMALL_PLATE_DISPLAYABLE)){
@@ -74,13 +82,9 @@ public class DisplayEvents {
         if(!placed && event.getItemStack().is(DisplayTags.PLATE_DISPLAYABLE)){
             placed=InterationManager.tryPlaceItemOnPlate(event.getEntity(), level, event.getHitVec(), event.getHand() == InteractionHand.MAIN_HAND);
         }
-/*
-        if (!placed && event.getHand() == InteractionHand.MAIN_HAND) {
-            placed= InterationManager.tryTakeItem(event.getEntity(), level, event.getHitVec(),event.getItemStack());
-        }
-*/
+
         if (!placed && event.getItemStack().is(DisplayTags.DISPLAYABLE)) {
-         placed=   InterationManager.tryPlaceItem(event.getEntity(), level, event.getHitVec(), event.getHand() == InteractionHand.MAIN_HAND);
+            placed=   InterationManager.tryPlaceItem(event.getEntity(), level, event.getHitVec(), event.getHand() == InteractionHand.MAIN_HAND);
         }
         event.setResult(Event.Result.ALLOW);
         if(placed) event.setCanceled(true);
