@@ -6,6 +6,7 @@ import com.jkvin114.displaydelight.init.BlockAssociations;
 import com.jkvin114.displaydelight.init.DisplayBlocks;
 import com.jkvin114.displaydelight.init.DisplayTags;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -163,18 +164,20 @@ public class InterationManager {
         InteractionHand handy = (isMainHand ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND);
         ItemStack stack = player.getItemInHand(handy);
         if (!stack.is(DisplayTags.DISPLAYABLE)) return false;
-
+        BlockPos pos = rez.getBlockPos();
         if (player.isCrouching()) {
-            BlockPos pos = rez.getBlockPos();
+
             Block target = BlockAssociations.getBlockFor(stack.getItem());
             if (target.asItem().useOn(new UseOnContext(player, handy, rez)) == InteractionResult.CONSUME) {
                 world.playSound(null, pos.above(), target.defaultBlockState().getSoundType(world, pos.above(), player).getPlaceSound(), SoundSource.BLOCKS, 1.0F, (float) (0.8F + (Math.random() * 0.2)));
                 player.swing(handy, true);
                 return true;
             }
-        } else {
+        } else if(world.getBlockState(pos).isFaceSturdy(world,pos, Direction.UP) && rez.getDirection() == Direction.UP){
+
             player.displayClientMessage(Component.translatable("item.displaydelight.tooltip.displayable"), true);
         }
+
 
         return false;
     }

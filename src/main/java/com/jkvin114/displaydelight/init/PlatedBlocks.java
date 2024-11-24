@@ -56,6 +56,9 @@ public class PlatedBlocks {
     public static final RegistryObject<Block> ED_CHOCOLATE_COOKIE = createStackablePlatedBlock("ed_plated_chocolate_cookie",4);
     public static final RegistryObject<Block> ED_SUGAR_COOKIE = createStackablePlatedBlock("ed_plated_sugar_cookie",4);
     public static final RegistryObject<Block> ED_SNICKERDOODLE = createStackablePlatedBlock("ed_plated_snickerdoodle",4);
+    public static final RegistryObject<Block> ED_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_sweet_roll",4);
+    public static final RegistryObject<Block> ED_BERRY_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_berry_sweet_roll",4);
+    public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_glow_berry_sweet_roll",4);
 
 
     private static BlockBehaviour.Properties baseProps(){
@@ -103,7 +106,8 @@ public class PlatedBlocks {
                 ED_GLOW_BERRY_JELLY_SANDWICH.get(),
                 ED_SWEET_BERRY_JELLY_SANDWICH.get(),
                 ED_GRILLED_CHEESE.get(),ED_CHOCOLATE_COOKIE.get(),
-                ED_SNICKERDOODLE.get(),ED_SUGAR_COOKIE.get()
+                ED_SNICKERDOODLE.get(),ED_SUGAR_COOKIE.get(),
+                ED_SWEET_ROLL.get(),ED_GLOW_BERRY_SWEET_ROLL.get(),ED_BERRY_SWEET_ROLL.get()
         };
     };
 

@@ -1,6 +1,6 @@
 {"render_type": "cutout",
   "texture_size": [16, 16],
   "textures": {
-    "particle": "farmers3d/tray_top"
+    "particle": "displaydelight:block/bowl"
   },
   "elements": []}
