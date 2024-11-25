@@ -1,5 +1,6 @@
 package com.jkvin114.displaydelight.mixin;
 
+import com.jkvin114.displaydelight.init.DisplayConfig;
 import com.jkvin114.displaydelight.init.DisplayTags;
 import net.minecraft.world.level.Level;
 
@@ -21,6 +22,7 @@ public abstract class ItemMixin {
 
     @Inject(method = "appendHoverText", at = @At("TAIL"))
     private void applyTooltip(ItemStack stack, @Nullable Level pLevel, List<Component> list, TooltipFlag pIsAdvanced, CallbackInfo c) {
+        if(!DisplayConfig.TOOLTIP.get()) return;
         if (stack.is(DisplayTags.DISPLAYABLE)) {
             list.add(Component.translatable("item.displaydelight.tooltip.displayable").withStyle(ChatFormatting.GRAY));
         }

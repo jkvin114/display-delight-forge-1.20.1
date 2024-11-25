@@ -1,9 +1,6 @@
 package com.jkvin114.displaydelight;
 
-import com.jkvin114.displaydelight.init.DisplayBlocks;
-import com.jkvin114.displaydelight.init.DisplayItems;
-import com.jkvin114.displaydelight.init.PlatedBlocks;
-import com.jkvin114.displaydelight.init.SmallPlatedBlocks;
+import com.jkvin114.displaydelight.init.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -48,7 +45,6 @@ public class DisplayDelight
     public DisplayDelight()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         DisplayBlocks.REGISTRY.register(modEventBus);
@@ -63,7 +59,8 @@ public class DisplayDelight
         modEventBus.addListener(this::addCreative);
 
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, DisplayConfig.CONFIG, "displaydelight-common.toml");
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -71,12 +68,6 @@ public class DisplayDelight
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
 
-        if (Config.logDirtBlock)
-            LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
-
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
     }
 
     // Add the example block item to the building blocks tab
