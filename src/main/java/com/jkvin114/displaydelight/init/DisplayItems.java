@@ -106,6 +106,44 @@ public class DisplayItems {
     public static final RegistryObject<Item> ED_SWEET_BERRY_JUICE = block(DisplayBlocks.ED_SWEET_BERRY_JUICE);
     public static final RegistryObject<Item> ED_GLOW_BERRY_JUICE = block(DisplayBlocks.ED_GLOW_BERRY_JUICE);
 
+
+
+    //delightful
+    public static final RegistryObject<Item> DF_MATCHA_ICE_CREAM = block(DisplayBlocks.DF_MATCHA_ICE_CREAM);
+    public static final RegistryObject<Item> DF_MATCHA_MILKSHAKE = block(DisplayBlocks.DF_MATCHA_MILKSHAKE);
+    public static final RegistryObject<Item> DF_SALMONBERRY_ICE_CREAM = block(DisplayBlocks.DF_SALMONBERRY_ICE_CREAM);
+    public static final RegistryObject<Item> DF_SALMONBERRY_MILKSHAKE = block(DisplayBlocks.DF_SALMONBERRY_MILKSHAKE);
+    public static final RegistryObject<Item> DF_MATCHA_LATTE = block(DisplayBlocks.DF_MATCHA_LATTE);
+    public static final RegistryObject<Item> DF_ENDER_NECTAR = block(DisplayBlocks.DF_ENDER_NECTAR);
+    public static final RegistryObject<Item> DF_BERRY_MATCHA_LATTE = block(DisplayBlocks.DF_BERRY_MATCHA_LATTE);
+    public static final RegistryObject<Item> DF_CACTUS_CHILI = block(DisplayBlocks.DF_CACTUS_CHILI);
+    public static final RegistryObject<Item> DF_FIELD_SALAD = block(DisplayBlocks.DF_FIELD_SALAD);
+    public static final RegistryObject<Item> DF_STUFFED_CANTALOUPE = block(DisplayBlocks.DF_STUFFED_CANTALOUPE);
+    public static final RegistryObject<Item> DF_SINIGANG = block(DisplayBlocks.DF_SINIGANG);
+    public static final RegistryObject<Item> DF_CACTUS_SOUP = block(DisplayBlocks.DF_CACTUS_SOUP);
+
+//PINEAPPLE DELIGHT
+    public static final RegistryObject<Item> PD_PINEAPPLE_FRIED_RICE = block(DisplayBlocks.PD_PINEAPPLE_FRIED_RICE);
+    public static final RegistryObject<Item> PD_PINEAPPLE_ICE_CREAM = block(DisplayBlocks.PD_PINEAPPLE_ICE_CREAM);
+    public static final RegistryObject<Item> PD_PINEAPPLE_MILK_SHAKE = block(DisplayBlocks.PD_PINEAPPLE_MILK_SHAKE);
+    public static final RegistryObject<Item> PD_PINEAPPLE_JUICE = block(DisplayBlocks.PD_PINEAPPLE_JUICE);
+
+
+    //ocean delight
+    public static final RegistryObject<Item> OD_BOWL_OF_GUARDIAN_SOUP = block(DisplayBlocks.OD_BOWL_OF_GUARDIAN_SOUP);
+    public static final RegistryObject<Item> OD_BRAISED_SEA_PICKLE = block(DisplayBlocks.OD_BRAISED_SEA_PICKLE);
+    public static final RegistryObject<Item> OD_SEAGRASS_SALAD = block(DisplayBlocks.OD_SEAGRASS_SALAD);
+    public static final RegistryObject<Item> OD_SQUID_RINGS = block(DisplayBlocks.OD_SQUID_RINGS);
+
+
+    //alex delight
+    public static final RegistryObject<Item> AD_MAGGOT_SALAD = block(DisplayBlocks.AD_MAGGOT_SALAD);
+    public static final RegistryObject<Item> AD_KANGAROO_STEW = block(DisplayBlocks.AD_KANGAROO_STEW);
+    public static final RegistryObject<Item> AD_ACACIA_BLOSSOM_SOUP = block(DisplayBlocks.AD_ACACIA_BLOSSOM_SOUP);
+    public static final RegistryObject<Item> AD_LOBSTER_PASTA = block(DisplayBlocks.AD_LOBSTER_PASTA);
+    public static final RegistryObject<Item> AD_KANGAROO_PASTA = block(DisplayBlocks.AD_KANGAROO_PASTA);
+
+
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return REGISTRY.register(block.getId().getPath(), () -> {
             return new BlockItem((Block)block.get(), new Item.Properties());

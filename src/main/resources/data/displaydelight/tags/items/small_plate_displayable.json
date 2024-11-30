@@ -43,5 +43,27 @@
       "id": "expandeddelight:sweet_roll",
       "required": false
     }
+
+
+  ,{
+      "id": "delightful:salmonberry_pie_slice",
+      "required": false
+    },{
+      "id": "delightful:pumpkin_pie_slice",
+      "required": false
+    }
+
+  ,{
+      "id": "pineapple_delight:pineapple_pie_side",
+      "required": false
+    }
+
+  ,{
+      "id": "oceansdelight:elder_guardian_roll",
+      "required": false
+    },{
+      "id": "oceansdelight:fugu_roll",
+      "required": false
+    }
   ]
 }

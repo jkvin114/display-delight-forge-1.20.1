@@ -31,6 +31,16 @@ public class SmallPlatedBlocks {
     public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL =  createPlatedBlock("ed_small_plated_glow_berry_sweet_roll");
     public static final RegistryObject<Block> ED_CHEESE_SLICE =  createPlatedBlock("ed_small_plated_cheese_slice");
 
+    //DELIGHTFUL
+    public static final RegistryObject<Block> DF_SALMONBERRY_PIE_SLICE =  createPlatedBlock("df_small_plated_salmonberry_pie_slice");
+    public static final RegistryObject<Block> DF_PUMPKIN_PIE_SLICE =  createPlatedBlock("df_small_plated_pumpkin_pie_slice");
+
+    public static final RegistryObject<Block> PD_PINEAPPLE_PIE_SLICE = createPlatedBlock("pd_small_plated_pineapple_pie_slice");
+
+
+    public static final RegistryObject<Block> OD_ELDER_QUARDIAN_ROLL = createPlatedBlock("od_small_plated_elder_guardian_roll");
+    public static final RegistryObject<Block> OD_FUGU_ROLL = createPlatedBlock("od_small_plated_fugu_roll");
+
     private static BlockBehaviour.Properties baseProps(){
         return BlockBehaviour.Properties.of().noOcclusion()
                 .instabreak().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BROWN);
@@ -40,11 +50,18 @@ public class SmallPlatedBlocks {
                 ()->new SmallPlatedFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
     }public static Block[] getAll() {
-        return new Block[]{PLATED_APPLE_PIE_SLICE.get(),PLATED_CAKE_SLICE.get(),
-        PLATED_CHOCOLATE_PIE_SLICE.get(),PLATED_SWEET_BERRY_CHEESECAKE_SLICE.get(),
-        PLATED_STUFFED_POTATO.get(),PLATED_COD_ROLL.get(),PLATED_SALMON_ROLL.get(),
-        PLATED_KELP_ROLL_SLICE.get(),PLATED_CABBAGE_ROLLS.get(),
+        return new Block[]{
+                PLATED_APPLE_PIE_SLICE.get(),PLATED_CAKE_SLICE.get(),
+                PLATED_CHOCOLATE_PIE_SLICE.get(),PLATED_SWEET_BERRY_CHEESECAKE_SLICE.get(),
+                PLATED_STUFFED_POTATO.get(),PLATED_COD_ROLL.get(),PLATED_SALMON_ROLL.get(),
+                PLATED_KELP_ROLL_SLICE.get(),PLATED_CABBAGE_ROLLS.get(),
 
-        ED_SWEET_ROLL.get(),ED_BERRY_SWEET_ROLL.get(),ED_GLOW_BERRY_SWEET_ROLL.get(),ED_CHEESE_SLICE.get()
+                ED_SWEET_ROLL.get(),ED_BERRY_SWEET_ROLL.get(),ED_GLOW_BERRY_SWEET_ROLL.get(),ED_CHEESE_SLICE.get(),
+                DF_SALMONBERRY_PIE_SLICE.get(),DF_PUMPKIN_PIE_SLICE.get(),
+
+                PD_PINEAPPLE_PIE_SLICE.get(),
+
+                OD_ELDER_QUARDIAN_ROLL.get(),OD_FUGU_ROLL.get()
+
         };}
 }

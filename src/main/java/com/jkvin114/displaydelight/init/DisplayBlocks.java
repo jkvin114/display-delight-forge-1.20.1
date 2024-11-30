@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+
 public class DisplayBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS,DisplayDelight.MODID);
 
@@ -81,14 +82,45 @@ public class DisplayBlocks {
     public static final RegistryObject<Block> ED_PEANUT_SALAD = createFoodBlock("ed_peanut_salad");
     public static final RegistryObject<Block> ED_SWEET_POTTATO_SALAD = createFoodBlock("ed_sweet_potato_salad");
 
-    public static final RegistryObject<Block> ED_CINNAMON_RICE = createFoodBlock("cinnamon_rice");
-    public static final RegistryObject<Block> ED_CINNAMON_APPLES = createFoodBlock("cinnamon_apples");
+    public static final RegistryObject<Block> ED_CINNAMON_RICE = createFoodBlock("ed_cinnamon_rice");
+    public static final RegistryObject<Block> ED_CINNAMON_APPLES = createFoodBlock("ed_cinnamon_apples");
 
     public static final RegistryObject<Block> ED_APPLE_JUICE = createDrinkFoodBlock("ed_apple_juice");
     public static final RegistryObject<Block> ED_SWEET_BERRY_JUICE = createDrinkFoodBlock("ed_sweet_berry_juice");
     public static final RegistryObject<Block> ED_GLOW_BERRY_JUICE = createDrinkFoodBlock("ed_glow_berry_juice");
+//delightful
 
+    public static final RegistryObject<Block> DF_MATCHA_ICE_CREAM = createFoodBlock("df_matcha_ice_cream");
+    public static final RegistryObject<Block> DF_MATCHA_MILKSHAKE= createDrinkFoodBlock("df_matcha_milkshake");
+    public static final RegistryObject<Block> DF_SALMONBERRY_ICE_CREAM = createFoodBlock("df_salmonberry_ice_cream");
+    public static final RegistryObject<Block> DF_SALMONBERRY_MILKSHAKE = createDrinkFoodBlock("df_salmonberry_milkshake");
+    public static final RegistryObject<Block> DF_MATCHA_LATTE = createDrinkFoodBlock("df_matcha_latte");
+    public static final RegistryObject<Block> DF_ENDER_NECTAR = createDrinkFoodBlock("df_ender_nectar");
+    public static final RegistryObject<Block> DF_BERRY_MATCHA_LATTE = createDrinkFoodBlock("df_berry_matcha_latte");
+    public static final RegistryObject<Block> DF_CACTUS_CHILI = createFoodBlock("df_cactus_chili");
+    public static final RegistryObject<Block> DF_FIELD_SALAD = createFoodBlock("df_field_salad");
+    public static final RegistryObject<Block> DF_STUFFED_CANTALOUPE = createFoodBlock("df_stuffed_cantaloupe");
+    public static final RegistryObject<Block> DF_SINIGANG = createFoodBlock("df_sinigang");
+    public static final RegistryObject<Block> DF_CACTUS_SOUP = createFoodBlock("df_cactus_soup");
 
+    //pineapple delight
+    public static final RegistryObject<Block> PD_PINEAPPLE_FRIED_RICE = createFoodBlock("pd_pineapple_fried_rice");
+    public static final RegistryObject<Block> PD_PINEAPPLE_ICE_CREAM = createDrinkFoodBlock("pd_pineapple_ice_cream");
+    public static final RegistryObject<Block> PD_PINEAPPLE_MILK_SHAKE = createDrinkFoodBlock("pd_pineapple_milk_shake");
+    public static final RegistryObject<Block> PD_PINEAPPLE_JUICE = createDrinkFoodBlock("pd_pineapple_juice");
+
+    //ocean delight
+    public static final RegistryObject<Block> OD_BOWL_OF_GUARDIAN_SOUP = createFoodBlock("od_bowl_of_guardian_soup");
+    public static final RegistryObject<Block> OD_BRAISED_SEA_PICKLE = createFoodBlock("od_braised_sea_pickle");
+    public static final RegistryObject<Block> OD_SEAGRASS_SALAD = createFoodBlock("od_seagrass_salad");
+    public static final RegistryObject<Block> OD_SQUID_RINGS = createFoodBlock("od_squid_rings");
+
+    //alex delight
+    public static final RegistryObject<Block> AD_MAGGOT_SALAD = createFoodBlock("ad_maggot_salad");
+    public static final RegistryObject<Block> AD_KANGAROO_STEW = createFoodBlock("ad_kangaroo_stew");
+    public static final RegistryObject<Block> AD_ACACIA_BLOSSOM_SOUP = createFoodBlock("ad_acacia_blossom_soup");
+    public static final RegistryObject<Block> AD_LOBSTER_PASTA = createWideFoodBlock("ad_lobster_pasta");
+    public static final RegistryObject<Block> AD_KANGAROO_PASTA = createWideFoodBlock("ad_kangaroo_pasta");
 
     public static Block[] getAll() {
         return new Block[]{
@@ -107,7 +139,19 @@ public class DisplayBlocks {
                 ED_ASPARAGUS_SOUP.get(),ED_ASPARAGUS_SOUP_CREAMY.get(),ED_ASPARAGUS_AND_BACON_CHEESY.get(),
                 ED_PEPERONATA.get(),ED_PEANUT_HONEY_SOUP.get(),ED_MAC_AND_CHEESE.get(),ED_PEANUT_SALAD.get(),
                 ED_SWEET_POTTATO_SALAD.get(),ED_CINNAMON_RICE.get(),ED_CINNAMON_APPLES.get(),
-                ED_APPLE_JUICE.get(),ED_SWEET_BERRY_JUICE.get(),ED_GLOW_BERRY_JUICE.get()
+                ED_APPLE_JUICE.get(),ED_SWEET_BERRY_JUICE.get(),ED_GLOW_BERRY_JUICE.get(),
+
+                DF_MATCHA_ICE_CREAM.get(),DF_MATCHA_LATTE.get(),DF_MATCHA_MILKSHAKE.get(),
+                DF_SALMONBERRY_ICE_CREAM.get(),DF_SALMONBERRY_MILKSHAKE.get(),DF_ENDER_NECTAR.get(),
+                DF_BERRY_MATCHA_LATTE.get(),DF_CACTUS_CHILI.get(),DF_FIELD_SALAD.get(),DF_STUFFED_CANTALOUPE.get(),
+                DF_SINIGANG.get(),DF_CACTUS_SOUP.get(),
+
+                PD_PINEAPPLE_FRIED_RICE.get(), PD_PINEAPPLE_JUICE.get(),PD_PINEAPPLE_ICE_CREAM.get(),PD_PINEAPPLE_MILK_SHAKE.get(),
+
+                OD_SQUID_RINGS.get(),OD_BRAISED_SEA_PICKLE.get(),OD_SEAGRASS_SALAD.get(),OD_BOWL_OF_GUARDIAN_SOUP.get(),
+
+                AD_ACACIA_BLOSSOM_SOUP.get(),AD_KANGAROO_PASTA.get(),AD_KANGAROO_STEW.get(),AD_MAGGOT_SALAD.get(),
+                AD_LOBSTER_PASTA.get()
 
         };
     }
