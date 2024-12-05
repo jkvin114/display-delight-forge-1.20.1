@@ -143,6 +143,31 @@ public class DisplayItems {
     public static final RegistryObject<Item> AD_LOBSTER_PASTA = block(DisplayBlocks.AD_LOBSTER_PASTA);
     public static final RegistryObject<Item> AD_KANGAROO_PASTA = block(DisplayBlocks.AD_KANGAROO_PASTA);
 
+    //cultural delights
+    public static final RegistryObject<Item> CTD_HEARTY_SALAD = block(DisplayBlocks.CTD_HEARTY_SALAD);
+    public static final RegistryObject<Item> CTD_CREAMED_CORN = block(DisplayBlocks.CTD_CREAMED_CORN);
+    public static final RegistryObject<Item> CTD_SPICY_CURRY = block(DisplayBlocks.CTD_SPICY_CURRY);
+    public static final RegistryObject<Item> CTD_FRIED_EGGPLANT_PASTA = block(DisplayBlocks.CTD_FRIED_EGGPLANT_PASTA);
+
+    //large meals
+    public static final RegistryObject<Item> LM_PUFFERFISH_BROTH = block(DisplayBlocks.LM_PUFFERFISH_BROTH);
+    public static final RegistryObject<Item> LM_POTATO_SOUP = block(DisplayBlocks.LM_POTATO_SOUP);
+    public static final RegistryObject<Item> LM_RED_SOUP = block(DisplayBlocks.LM_RED_SOUP);
+    public static final RegistryObject<Item> LM_TOMATO_EGG_SOUP = block(DisplayBlocks.LM_TOMATO_EGG_SOUP);
+    public static final RegistryObject<Item> LM_COD_DELUXE= block(DisplayBlocks.LM_COD_DELUXE);
+    public static final RegistryObject<Item> LM_HEARTY_LUNCH = block(DisplayBlocks.LM_HEARTY_LUNCH);
+    public static final RegistryObject<Item> LM_CHICKEN_CURRY = block(DisplayBlocks.LM_CHICKEN_CURRY);
+    public static final RegistryObject<Item> LM_PASTA_WITH_MUSHROOM_SAUCE = block(DisplayBlocks.LM_PASTA_WITH_MUSHROOM_SAUCE);
+    public static final RegistryObject<Item> LM_OMURICE = block(DisplayBlocks.LM_OMURICE);
+    public static final RegistryObject<Item> LM_MUSHROOM_POT_PIE = block(DisplayBlocks.LM_MUSHROOM_POT_PIE);
+    public static final RegistryObject<Item> LM_ROASTED_MUTTOH_RACK = block(DisplayBlocks.LM_ROASTED_MUTTOH_RACK);
+    public static final RegistryObject<Item> LM_SWEET_BERRY_CUSTARD = block(DisplayBlocks.LM_SWEET_BERRY_CUSTARD);
+    public static final RegistryObject<Item> LM_RICE_PUDDING = block(DisplayBlocks.LM_RICE_PUDDING);
+
+    //festive delight
+    public static final RegistryObject<Item> FD_FESTIVE_CHICKEN = block(DisplayBlocks.FD_FESTIVE_CHICKEN);
+    public static final RegistryObject<Item> FD_CHRISTMAS_TEA = block(DisplayBlocks.FD_CHRISTMAS_TEA);
+    public static final RegistryObject<Item> FD_SALMON_VERRINES = block(DisplayBlocks.FD_SALMON_VERRINES);
 
     private static RegistryObject<Item> block(RegistryObject<Block> block) {
         return REGISTRY.register(block.getId().getPath(), () -> {

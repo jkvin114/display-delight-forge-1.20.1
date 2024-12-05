@@ -7,6 +7,8 @@ import com.jkvin114.displaydelight.init.*;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.ItemStack;
@@ -22,6 +24,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.awt.event.TextEvent;
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -90,6 +93,9 @@ public class DisplayEvents {
         if(placed) event.setCanceled(true);
 
     }
+    private  static boolean isVanilaFood(ItemStack item){
+        return item.is(Items.MUSHROOM_STEW) || item.is(Items.RABBIT_STEW) ||item.is(Items.BEETROOT_SOUP) ;
+    }
 
     @SubscribeEvent
     public static void onWorldLoad(LevelEvent.Load event) {
@@ -98,6 +104,9 @@ public class DisplayEvents {
             for (Block target : array) {
                 List<ItemStack> drops = Block.getDrops(target.defaultBlockState(), lvl, BlockPos.containing(0, 256, 0), null);
                 if (!drops.isEmpty() && drops.get(0).is(DisplayTags.DISPLAYABLE)) {
+
+                    if(DisplayConfig.DISABLE_VANILLA_FOODS.get() && isVanilaFood(drops.get(0))) continue;
+
                     BlockAssociations.addToMap(drops.get(0).getItem(), target, false);
                 }
             }

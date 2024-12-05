@@ -13,37 +13,37 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class PlatedBlocks {
-    public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS,DisplayDelight.MODID);
-    public static final RegistryObject<Block> PLATED_DUMPLINGS = createStackablePlatedBlock("plated_dumplings",2);
-    public static final RegistryObject<Block> PLATED_HAMBURGER= createPlatedBlock("plated_hamburger");
-    public static final RegistryObject<Block> PLATED_BARBECUE_STICK= createStackablePlatedBlock("plated_barbecue_stick",3);
-    public static final RegistryObject<Block> PLATED_CHICKEN_SANDWICH= createStackablePlatedBlock("plated_chicken_sandwich",2);
-    public static final RegistryObject<Block> PLATED_EGG_SANDWICH= createStackablePlatedBlock("plated_egg_sandwich",2);
-    public static final RegistryObject<Block> PLATED_KELP_ROLL= createStackablePlatedBlock("plated_kelp_roll",3);
-    public static final RegistryObject<Block> PLATED_MELON_POPSICLE= createStackablePlatedBlock("plated_melon_popsicle",2);
-    public static final RegistryObject<Block> PLATED_STUFFED_POTATO= createStackablePlatedBlock("plated_stuffed_potato",3);
-    public static final RegistryObject<Block> PLATED_MUTTON_WRAP= createStackablePlatedBlock("plated_mutton_wrap",2);
-    public static final RegistryObject<Block> PLATED_BACON_SANDWICH= createPlatedBlock("plated_bacon_sandwich");
+    public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DisplayDelight.MODID);
+    public static final RegistryObject<Block> PLATED_DUMPLINGS = createStackablePlatedBlock("plated_dumplings", 2);
+    public static final RegistryObject<Block> PLATED_HAMBURGER = createPlatedBlock("plated_hamburger");
+    public static final RegistryObject<Block> PLATED_BARBECUE_STICK = createStackablePlatedBlock("plated_barbecue_stick", 3);
+    public static final RegistryObject<Block> PLATED_CHICKEN_SANDWICH = createStackablePlatedBlock("plated_chicken_sandwich", 2);
+    public static final RegistryObject<Block> PLATED_EGG_SANDWICH = createStackablePlatedBlock("plated_egg_sandwich", 2);
+    public static final RegistryObject<Block> PLATED_KELP_ROLL = createStackablePlatedBlock("plated_kelp_roll", 3);
+    public static final RegistryObject<Block> PLATED_MELON_POPSICLE = createStackablePlatedBlock("plated_melon_popsicle", 2);
+    public static final RegistryObject<Block> PLATED_STUFFED_POTATO = createStackablePlatedBlock("plated_stuffed_potato", 3);
+    public static final RegistryObject<Block> PLATED_MUTTON_WRAP = createStackablePlatedBlock("plated_mutton_wrap", 2);
+    public static final RegistryObject<Block> PLATED_BACON_SANDWICH = createPlatedBlock("plated_bacon_sandwich");
 
-    public static final RegistryObject<Block> PLATED_CABBAGE_ROLL= createStackablePlatedBlock("plated_cabbage_rolls",3);
+    public static final RegistryObject<Block> PLATED_CABBAGE_ROLL = createStackablePlatedBlock("plated_cabbage_rolls", 3);
 
-    public static final RegistryObject<Block> PLATED_COD_ROLL= createStackablePlatedBlock("plated_cod_roll",6);
-    public static final RegistryObject<Block> PLATED_KELP_ROLL_SLICE= createStackablePlatedBlock("plated_kelp_roll_slice",6);
-    public static final RegistryObject<Block> PLATED_SALMON_ROLL= createStackablePlatedBlock("plated_salmon_roll",6);
+    public static final RegistryObject<Block> PLATED_COD_ROLL = createStackablePlatedBlock("plated_cod_roll", 6);
+    public static final RegistryObject<Block> PLATED_KELP_ROLL_SLICE = createStackablePlatedBlock("plated_kelp_roll_slice", 6);
+    public static final RegistryObject<Block> PLATED_SALMON_ROLL = createStackablePlatedBlock("plated_salmon_roll", 6);
 
-    public static final RegistryObject<Block> PLATED_SWEET_BERRY_COOKIE = createStackablePlatedBlock("plated_sweet_berry_cookie",4);
-    public static final RegistryObject<Block> PLATED_HONEY_COOKIE = createStackablePlatedBlock("plated_honey_cookie",4);
+    public static final RegistryObject<Block> PLATED_SWEET_BERRY_COOKIE = createStackablePlatedBlock("plated_sweet_berry_cookie", 4);
+    public static final RegistryObject<Block> PLATED_HONEY_COOKIE = createStackablePlatedBlock("plated_honey_cookie", 4);
 
 
     //VANILA
-    public static final RegistryObject<Block> PLATED_COOKIE = createStackablePlatedBlock("plated_cookie",4);
+    public static final RegistryObject<Block> PLATED_COOKIE = createStackablePlatedBlock("plated_cookie", 4);
     public static final RegistryObject<Block> PLATED_PUMPKIN_PIE = createPlatedBlock("plated_pumpkin_pie");
 
 
     //corn delight
-    public static final RegistryObject<Block> CD_GRILLED_CORN = createStackablePlatedBlock("cd_plated_grilled_corn",2);
-    public static final RegistryObject<Block> CD_CLASSIC_CORN_DOG = createStackablePlatedBlock("cd_plated_classic_corn_dog",2);
-    public static final RegistryObject<Block> CD_TACO = createStackablePlatedBlock("cd_plated_taco",2);
+    public static final RegistryObject<Block> CD_GRILLED_CORN = createStackablePlatedBlock("cd_plated_grilled_corn", 2);
+    public static final RegistryObject<Block> CD_CLASSIC_CORN_DOG = createStackablePlatedBlock("cd_plated_classic_corn_dog", 2);
+    public static final RegistryObject<Block> CD_TACO = createStackablePlatedBlock("cd_plated_taco", 2);
 
 
     //EXPANDED DELIGHT
@@ -53,52 +53,76 @@ public class PlatedBlocks {
     public static final RegistryObject<Block> ED_SWEET_BERRY_JELLY_SANDWICH = createPlatedBlock("ed_plated_sweet_berry_jelly_sandwich");
     public static final RegistryObject<Block> ED_CHEESE_SANDWICH = createPlatedBlock("ed_plated_cheese_sandwich");
     public static final RegistryObject<Block> ED_GRILLED_CHEESE = createPlatedBlock("ed_plated_grilled_cheese");
-    public static final RegistryObject<Block> ED_CHOCOLATE_COOKIE = createStackablePlatedBlock("ed_plated_chocolate_cookie",4);
-    public static final RegistryObject<Block> ED_SUGAR_COOKIE = createStackablePlatedBlock("ed_plated_sugar_cookie",4);
-    public static final RegistryObject<Block> ED_SNICKERDOODLE = createStackablePlatedBlock("ed_plated_snickerdoodle",4);
-    public static final RegistryObject<Block> ED_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_sweet_roll",4);
-    public static final RegistryObject<Block> ED_BERRY_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_berry_sweet_roll",4);
-    public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL =  createStackablePlatedBlock("ed_plated_glow_berry_sweet_roll",4);
+    public static final RegistryObject<Block> ED_CHOCOLATE_COOKIE = createStackablePlatedBlock("ed_plated_chocolate_cookie", 4);
+    public static final RegistryObject<Block> ED_SUGAR_COOKIE = createStackablePlatedBlock("ed_plated_sugar_cookie", 4);
+    public static final RegistryObject<Block> ED_SNICKERDOODLE = createStackablePlatedBlock("ed_plated_snickerdoodle", 4);
+    public static final RegistryObject<Block> ED_SWEET_ROLL = createStackablePlatedBlock("ed_plated_sweet_roll", 4);
+    public static final RegistryObject<Block> ED_BERRY_SWEET_ROLL = createStackablePlatedBlock("ed_plated_berry_sweet_roll", 4);
+    public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL = createStackablePlatedBlock("ed_plated_glow_berry_sweet_roll", 4);
     //DELIGHTFUL
-    public static final RegistryObject<Block> DF_SMORE = createStackablePlatedBlock("df_plated_smore",2);
+    public static final RegistryObject<Block> DF_SMORE = createStackablePlatedBlock("df_plated_smore", 2);
     public static final RegistryObject<Block> DF_CHEESEBURGER = createPlatedBlock("df_plated_cheeseburger");
     public static final RegistryObject<Block> DF_DELUXE_CHEESEBURGER = createPlatedBlock("df_plated_deluxe_cheeseburger");
     public static final RegistryObject<Block> DF_NUT_BUTTER_AND_JELLY_SANDWICH = createPlatedBlock("df_plated_nut_butter_and_jelly_sandwich");
 
-    public static final RegistryObject<Block> DF_COOKED_MARSHMELLOW_STICK = createStackablePlatedBlock("df_plated_cooked_marshmallow_stick",3);
-    public static final RegistryObject<Block> DF_CANTALOUPE_POPSICLE = createStackablePlatedBlock("df_plated_cantaloupe_popsicle",2);
-    public static final RegistryObject<Block> DF_CANTALOUPE_BREAD = createStackablePlatedBlock("df_plated_cantaloupe_bread",2);
-    public static final RegistryObject<Block> DF_WRAPPED_CANTALOUPE = createStackablePlatedBlock("df_plated_wrapped_cantaloupe",2);
+    public static final RegistryObject<Block> DF_COOKED_MARSHMELLOW_STICK = createStackablePlatedBlock("df_plated_cooked_marshmallow_stick", 3);
+    public static final RegistryObject<Block> DF_CANTALOUPE_POPSICLE = createStackablePlatedBlock("df_plated_cantaloupe_popsicle", 2);
+    public static final RegistryObject<Block> DF_CANTALOUPE_BREAD = createStackablePlatedBlock("df_plated_cantaloupe_bread", 2);
+    public static final RegistryObject<Block> DF_WRAPPED_CANTALOUPE = createStackablePlatedBlock("df_plated_wrapped_cantaloupe", 2);
 
-//OCEAN DELIGHT
-    public static final RegistryObject<Block> OD_BACKED_TENTACLE_ON_A_STICK = createStackablePlatedBlock("od_plated_baked_tentacle_on_a_stick",2);
-    public static final RegistryObject<Block> OD_ELDER_GUARDIAN_ROLL = createStackablePlatedBlock("od_plated_elder_guardian_roll",6);
-    public static final RegistryObject<Block> OD_FUGU_ROLL = createStackablePlatedBlock("od_plated_fugu_roll",6);
+    //OCEAN DELIGHT
+    public static final RegistryObject<Block> OD_BACKED_TENTACLE_ON_A_STICK = createStackablePlatedBlock("od_plated_baked_tentacle_on_a_stick", 2);
+    public static final RegistryObject<Block> OD_ELDER_GUARDIAN_ROLL = createStackablePlatedBlock("od_plated_elder_guardian_roll", 6);
+    public static final RegistryObject<Block> OD_FUGU_ROLL = createStackablePlatedBlock("od_plated_fugu_roll", 6);
     public static final RegistryObject<Block> OD_HONEY_FRIED_KELP = createPlatedBlock("od_plated_honey_fried_kelp");
-    public static final RegistryObject<Block> OD_COOKED_STUFFED_COD = createPlatedBlock("od_plated_cooked_stuffed_cod");
+    public static final RegistryObject<Block> OD_COOKED_STUFFED_COD = createStackablePlatedBlock("od_plated_cooked_stuffed_cod", 2);
 
     //ALEX DELIGHT
     public static final RegistryObject<Block> AD_BUNFUNBUS_SANDWICH = createPlatedBlock("ad_plated_bunfungus_sandwich");
     public static final RegistryObject<Block> AD_BISON_BURGER = createPlatedBlock("ad_plated_bison_burger");
-    public static final RegistryObject<Block> AD_GONGYLIDIA_BRUSCHETTA = createStackablePlatedBlock("ad_plated_gongylidia_bruschetta",2);
+    public static final RegistryObject<Block> AD_GONGYLIDIA_BRUSCHETTA = createStackablePlatedBlock("ad_plated_gongylidia_bruschetta", 2);
 
-    private static BlockBehaviour.Properties baseProps(){
+    //cultural delight
+    public static final RegistryObject<Block> CTD_ELOTE = createStackablePlatedBlock("ctd_plated_elote",2);
+    public static final RegistryObject<Block> CTD_EMPANADA = createStackablePlatedBlock("ctd_plated_empanada",2);
+    public static final RegistryObject<Block> CTD_BEEF_BURITO = createStackablePlatedBlock("ctd_plated_beef_burrito",2);
+    public static final RegistryObject<Block> CTD_MUTTON_SANDWICH = createPlatedBlock("ctd_plated_mutton_sandwich");
+    public static final RegistryObject<Block> CTD_EGGPLANT_BURGER = createPlatedBlock("ctd_plated_eggplant_burger");
+    public static final RegistryObject<Block> CTD_AVOCADO_TOAST = createPlatedBlock("ctd_plated_avocado_toast");
+    public static final RegistryObject<Block> CTD_CHICKEN_TACO = createStackablePlatedBlock("ctd_plated_chicken_taco",2);
+    public static final RegistryObject<Block> CTD_PORK_WRAP = createStackablePlatedBlock("ctd_plated_pork_wrap",2);
+    public static final RegistryObject<Block> CTD_FISH_TACO = createStackablePlatedBlock("ctd_plated_fish_taco",2);
+    public static final RegistryObject<Block> CTD_CHICKEN_ROLL = createStackablePlatedBlock("ctd_plated_chicken_roll",3);
+    public static final RegistryObject<Block> CTD_MIDORI_ROLL = createStackablePlatedBlock("ctd_plated_midori_roll",3);
+    public static final RegistryObject<Block> CTD_CHICKEN_ROLL_SLICE = createStackablePlatedBlock("ctd_plated_chicken_roll_slice",6);
+    public static final RegistryObject<Block> CTD_MIDORI_ROLL_SLICE = createStackablePlatedBlock("ctd_plated_midori_roll_slice",6);
+    public static final RegistryObject<Block> CTD_PUFFERFISH_ROLL = createStackablePlatedBlock("ctd_plated_pufferfish_roll",6);
+    public static final RegistryObject<Block> CTD_TROPICAL_ROLL = createStackablePlatedBlock("ctd_plated_tropical_roll",6);
+    public static final RegistryObject<Block> CTD_RICE_BALL = createStackablePlatedBlock("ctd_plated_rice_ball",4);
+    public static final RegistryObject<Block> CTD_EGG_ROLL = createStackablePlatedBlock("ctd_plated_egg_roll",6);
+    public static final RegistryObject<Block> CTD_CALAMARI_ROLL = createStackablePlatedBlock("ctd_plated_calamari_roll",6);
+
+
+    private static BlockBehaviour.Properties baseProps() {
         return BlockBehaviour.Properties.of().noOcclusion()
                 .instabreak().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BROWN);
     }
 
-    private static RegistryObject<Block> createStackablePlatedBlock(String name,int maxStacks){
-        return  REGISTRY.register(name,
-                ()->new StackablePlateFoodBlock(baseProps()
-                        .sound(SoundType.WOOD),maxStacks));
+    private static RegistryObject<Block> createStackablePlatedBlock(String name, int maxStacks) {
+        return REGISTRY.register(name,
+                () -> new StackablePlateFoodBlock(baseProps()
+                        .sound(SoundType.WOOD), maxStacks));
     }
-    private static RegistryObject<Block> createPlatedBlock(String name){
-        return  REGISTRY.register(name,
-                ()->new SimplePlatedFoodBlock(baseProps()
+
+    private static RegistryObject<Block> createPlatedBlock(String name) {
+        return REGISTRY.register(name,
+                () -> new SimplePlatedFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
     }
+
     public static Block[] getAll() {
         return new Block[]{
+
                 PLATED_DUMPLINGS.get(),
                 PLATED_HAMBURGER.get(),
                 PLATED_BARBECUE_STICK.get(),
@@ -114,9 +138,9 @@ public class PlatedBlocks {
                 PLATED_KELP_ROLL_SLICE.get(),
                 PLATED_SALMON_ROLL.get(),
                 PLATED_SWEET_BERRY_COOKIE.get(),
-                PLATED_HONEY_COOKIE.get(),PLATED_COOKIE.get(),PLATED_PUMPKIN_PIE.get(),
+                PLATED_HONEY_COOKIE.get(), PLATED_COOKIE.get(), PLATED_PUMPKIN_PIE.get(),
 
-                CD_GRILLED_CORN.get(),CD_CLASSIC_CORN_DOG.get(),
+                CD_GRILLED_CORN.get(), CD_CLASSIC_CORN_DOG.get(),
                 CD_TACO.get(),
 
                 ED_PEANUT_BUTTER_SANDWICH.get(),
@@ -124,19 +148,26 @@ public class PlatedBlocks {
                 ED_PEANUT_BUTTER_AND_HONEY_SANDWICH.get(),
                 ED_GLOW_BERRY_JELLY_SANDWICH.get(),
                 ED_SWEET_BERRY_JELLY_SANDWICH.get(),
-                ED_GRILLED_CHEESE.get(),ED_CHOCOLATE_COOKIE.get(),
-                ED_SNICKERDOODLE.get(),ED_SUGAR_COOKIE.get(),
-                ED_SWEET_ROLL.get(),ED_GLOW_BERRY_SWEET_ROLL.get(),ED_BERRY_SWEET_ROLL.get(),
+                ED_GRILLED_CHEESE.get(), ED_CHOCOLATE_COOKIE.get(),
+                ED_SNICKERDOODLE.get(), ED_SUGAR_COOKIE.get(),
+                ED_SWEET_ROLL.get(), ED_GLOW_BERRY_SWEET_ROLL.get(), ED_BERRY_SWEET_ROLL.get(),
 
-                DF_SMORE.get(),DF_CHEESEBURGER.get(),DF_DELUXE_CHEESEBURGER.get(),
-                DF_NUT_BUTTER_AND_JELLY_SANDWICH.get(),DF_COOKED_MARSHMELLOW_STICK.get(),DF_CANTALOUPE_BREAD.get(),DF_WRAPPED_CANTALOUPE.get(),
+                DF_SMORE.get(), DF_CHEESEBURGER.get(), DF_DELUXE_CHEESEBURGER.get(),
+                DF_NUT_BUTTER_AND_JELLY_SANDWICH.get(), DF_COOKED_MARSHMELLOW_STICK.get(), DF_CANTALOUPE_BREAD.get(), DF_WRAPPED_CANTALOUPE.get(),
                 DF_CANTALOUPE_POPSICLE.get(),
 
-                OD_COOKED_STUFFED_COD.get(),OD_HONEY_FRIED_KELP.get(),OD_ELDER_GUARDIAN_ROLL.get(),
-                OD_FUGU_ROLL.get(),OD_BACKED_TENTACLE_ON_A_STICK.get(),
+                OD_COOKED_STUFFED_COD.get(), OD_HONEY_FRIED_KELP.get(), OD_ELDER_GUARDIAN_ROLL.get(),
+                OD_FUGU_ROLL.get(), OD_BACKED_TENTACLE_ON_A_STICK.get(),
 
-                AD_BISON_BURGER.get(),AD_BUNFUNBUS_SANDWICH.get(),AD_GONGYLIDIA_BRUSCHETTA.get()
+                AD_BISON_BURGER.get(), AD_BUNFUNBUS_SANDWICH.get(), AD_GONGYLIDIA_BRUSCHETTA.get(),
+
+                CTD_ELOTE.get(),CTD_EMPANADA.get(),CTD_BEEF_BURITO.get(),CTD_MUTTON_SANDWICH.get(),CTD_EGGPLANT_BURGER.get(),CTD_AVOCADO_TOAST.get(),
+                CTD_CHICKEN_TACO.get(),CTD_PORK_WRAP.get(),CTD_FISH_TACO.get(),CTD_CHICKEN_ROLL.get(),CTD_MIDORI_ROLL.get(),
+                CTD_CHICKEN_ROLL_SLICE.get(),CTD_MIDORI_ROLL_SLICE.get(),CTD_PUFFERFISH_ROLL.get(),CTD_TROPICAL_ROLL.get(),
+                CTD_RICE_BALL.get(),CTD_EGG_ROLL.get(),CTD_CALAMARI_ROLL.get()
         };
-    };
+    }
+
+    ;
 
 }
