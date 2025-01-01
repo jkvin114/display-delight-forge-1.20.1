@@ -12,7 +12,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PlatedBlocks {
+    public static List<RegistryObject<Block>> blocks = new ArrayList<>() ;
+
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DisplayDelight.MODID);
     public static final RegistryObject<Block> PLATED_DUMPLINGS = createStackablePlatedBlock("plated_dumplings", 2);
     public static final RegistryObject<Block> PLATED_HAMBURGER = createPlatedBlock("plated_hamburger");
@@ -46,19 +51,6 @@ public class PlatedBlocks {
     public static final RegistryObject<Block> CD_TACO = createStackablePlatedBlock("cd_plated_taco", 2);
 
 
-    //EXPANDED DELIGHT
-    public static final RegistryObject<Block> ED_PEANUT_BUTTER_SANDWICH = createPlatedBlock("ed_plated_peanut_butter_sandwich");
-    public static final RegistryObject<Block> ED_PEANUT_BUTTER_AND_HONEY_SANDWICH = createPlatedBlock("ed_plated_peanut_butter_honey_sandwich");
-    public static final RegistryObject<Block> ED_GLOW_BERRY_JELLY_SANDWICH = createPlatedBlock("ed_plated_glow_berry_jelly_sandwich");
-    public static final RegistryObject<Block> ED_SWEET_BERRY_JELLY_SANDWICH = createPlatedBlock("ed_plated_sweet_berry_jelly_sandwich");
-    public static final RegistryObject<Block> ED_CHEESE_SANDWICH = createPlatedBlock("ed_plated_cheese_sandwich");
-    public static final RegistryObject<Block> ED_GRILLED_CHEESE = createPlatedBlock("ed_plated_grilled_cheese");
-    public static final RegistryObject<Block> ED_CHOCOLATE_COOKIE = createStackablePlatedBlock("ed_plated_chocolate_cookie", 4);
-    public static final RegistryObject<Block> ED_SUGAR_COOKIE = createStackablePlatedBlock("ed_plated_sugar_cookie", 4);
-    public static final RegistryObject<Block> ED_SNICKERDOODLE = createStackablePlatedBlock("ed_plated_snickerdoodle", 4);
-    public static final RegistryObject<Block> ED_SWEET_ROLL = createStackablePlatedBlock("ed_plated_sweet_roll", 4);
-    public static final RegistryObject<Block> ED_BERRY_SWEET_ROLL = createStackablePlatedBlock("ed_plated_berry_sweet_roll", 4);
-    public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL = createStackablePlatedBlock("ed_plated_glow_berry_sweet_roll", 4);
     //DELIGHTFUL
     public static final RegistryObject<Block> DF_SMORE = createStackablePlatedBlock("df_plated_smore", 2);
     public static final RegistryObject<Block> DF_CHEESEBURGER = createPlatedBlock("df_plated_cheeseburger");
@@ -103,71 +95,30 @@ public class PlatedBlocks {
     public static final RegistryObject<Block> CTD_CALAMARI_ROLL = createStackablePlatedBlock("ctd_plated_calamari_roll",6);
 
 
+
     private static BlockBehaviour.Properties baseProps() {
         return BlockBehaviour.Properties.of().noOcclusion()
                 .instabreak().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BROWN);
     }
 
-    private static RegistryObject<Block> createStackablePlatedBlock(String name, int maxStacks) {
-        return REGISTRY.register(name,
+    public static RegistryObject<Block> createStackablePlatedBlock(String name, int maxStacks) {
+        RegistryObject<Block> b = REGISTRY.register(name,
                 () -> new StackablePlateFoodBlock(baseProps()
                         .sound(SoundType.WOOD), maxStacks));
+        blocks.add(b);
+        return b;
     }
 
-    private static RegistryObject<Block> createPlatedBlock(String name) {
-        return REGISTRY.register(name,
+    public static RegistryObject<Block> createPlatedBlock(String name) {
+        RegistryObject<Block> b = REGISTRY.register(name,
                 () -> new SimplePlatedFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
+        blocks.add(b);
+        return b;
     }
 
-    public static Block[] getAll() {
-        return new Block[]{
-
-                PLATED_DUMPLINGS.get(),
-                PLATED_HAMBURGER.get(),
-                PLATED_BARBECUE_STICK.get(),
-                PLATED_CHICKEN_SANDWICH.get(),
-                PLATED_EGG_SANDWICH.get(),
-                PLATED_KELP_ROLL.get(),
-                PLATED_MELON_POPSICLE.get(),
-                PLATED_STUFFED_POTATO.get(),
-                PLATED_MUTTON_WRAP.get(),
-                PLATED_BACON_SANDWICH.get(),
-                PLATED_CABBAGE_ROLL.get(),
-                PLATED_COD_ROLL.get(),
-                PLATED_KELP_ROLL_SLICE.get(),
-                PLATED_SALMON_ROLL.get(),
-                PLATED_SWEET_BERRY_COOKIE.get(),
-                PLATED_HONEY_COOKIE.get(), PLATED_COOKIE.get(), PLATED_PUMPKIN_PIE.get(),
-
-                CD_GRILLED_CORN.get(), CD_CLASSIC_CORN_DOG.get(),
-                CD_TACO.get(),
-
-                ED_PEANUT_BUTTER_SANDWICH.get(),
-                ED_CHEESE_SANDWICH.get(),
-                ED_PEANUT_BUTTER_AND_HONEY_SANDWICH.get(),
-                ED_GLOW_BERRY_JELLY_SANDWICH.get(),
-                ED_SWEET_BERRY_JELLY_SANDWICH.get(),
-                ED_GRILLED_CHEESE.get(), ED_CHOCOLATE_COOKIE.get(),
-                ED_SNICKERDOODLE.get(), ED_SUGAR_COOKIE.get(),
-                ED_SWEET_ROLL.get(), ED_GLOW_BERRY_SWEET_ROLL.get(), ED_BERRY_SWEET_ROLL.get(),
-
-                DF_SMORE.get(), DF_CHEESEBURGER.get(), DF_DELUXE_CHEESEBURGER.get(),
-                DF_NUT_BUTTER_AND_JELLY_SANDWICH.get(), DF_COOKED_MARSHMELLOW_STICK.get(), DF_CANTALOUPE_BREAD.get(), DF_WRAPPED_CANTALOUPE.get(),
-                DF_CANTALOUPE_POPSICLE.get(),
-
-                OD_COOKED_STUFFED_COD.get(), OD_HONEY_FRIED_KELP.get(), OD_ELDER_GUARDIAN_ROLL.get(),
-                OD_FUGU_ROLL.get(), OD_BACKED_TENTACLE_ON_A_STICK.get(),
-
-                AD_BISON_BURGER.get(), AD_BUNFUNBUS_SANDWICH.get(), AD_GONGYLIDIA_BRUSCHETTA.get(),
-
-                CTD_ELOTE.get(),CTD_EMPANADA.get(),CTD_BEEF_BURITO.get(),CTD_MUTTON_SANDWICH.get(),CTD_EGGPLANT_BURGER.get(),CTD_AVOCADO_TOAST.get(),
-                CTD_CHICKEN_TACO.get(),CTD_PORK_WRAP.get(),CTD_FISH_TACO.get(),CTD_CHICKEN_ROLL.get(),CTD_MIDORI_ROLL.get(),
-                CTD_CHICKEN_ROLL_SLICE.get(),CTD_MIDORI_ROLL_SLICE.get(),CTD_PUFFERFISH_ROLL.get(),CTD_TROPICAL_ROLL.get(),
-                CTD_RICE_BALL.get(),CTD_EGG_ROLL.get(),CTD_CALAMARI_ROLL.get()
-        };
-    }
-
-    ;
+    public static List<Block> getAll() {
+        return blocks.stream().map(RegistryObject::get).toList();
+    };
 
 }

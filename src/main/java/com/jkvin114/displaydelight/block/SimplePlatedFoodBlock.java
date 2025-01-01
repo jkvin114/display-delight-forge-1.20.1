@@ -1,4 +1,5 @@
 package com.jkvin114.displaydelight.block;
+import net.minecraft.world.entity.MobCategory;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;

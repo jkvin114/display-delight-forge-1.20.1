@@ -1,7 +1,9 @@
 package com.jkvin114.displaydelight;
 
 import com.jkvin114.displaydelight.init.*;
+import com.jkvin114.displaydelight.init.compat.ExpandedDelightDisplayBlocks;
 import com.mojang.logging.LogUtils;
+import cpw.mods.modlauncher.api.IncompatibleEnvironmentException;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -19,7 +21,9 @@ import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.ModLoadingException;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -42,15 +46,24 @@ public class DisplayDelight
     private static final Logger LOGGER = LogUtils.getLogger();
 
 
-    public DisplayDelight()
-    {
+    public DisplayDelight() throws Exception {
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        if(ModList.get().isLoaded("displaydelight_lite")){
+            throw new RuntimeException("Mod displaydelight_lite is not compatiable with displaydelight");
+        }
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-        DisplayBlocks.REGISTRY.register(modEventBus);
         DisplayItems.REGISTRY.register(modEventBus);
+        DisplayBlocks.REGISTRY.register(modEventBus);
         PlatedBlocks.REGISTRY.register(modEventBus);
         SmallPlatedBlocks.REGISTRY.register(modEventBus);
+        ExpandedDelightDisplayBlocks.load();
+
+
+
         //
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -73,10 +86,15 @@ public class DisplayDelight
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS
-                || event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(DisplayItems.PLATE.get());
-            event.accept(DisplayItems.SMALL_PLATE.get());
+        try{
+
+            if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS
+                    || event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+                event.accept(DisplayItems.PLATE.get());
+                event.accept(DisplayItems.SMALL_PLATE.get());
+            }
+        } catch (Exception e) {
+            LOGGER.error("Failed to initialize Display Delight creative tab! "+ e);
         }
     }
 

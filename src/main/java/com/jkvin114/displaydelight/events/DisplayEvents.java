@@ -38,16 +38,18 @@ public class DisplayEvents {
     //disables food eating animation before plating it to a plate
     @SubscribeEvent
     public static void on(LivingEntityUseItemEvent.Start event) {
+        if(DisplayConfig.DISABLE_EATING_ANIMATION_FIX.get()) return;
+
         if(event.getEntity() instanceof Player && isPlateDisplayable(event.getItem())){
             Level lvl = event.getEntity().level();
             if(shouldCancelUseEventServer && !lvl.isClientSide) {
                 shouldCancelUseEventServer = false;
                 event.setCanceled(true);
-                System.out.println("cancel server");
+               // System.out.println("cancel server");
             } if(shouldCancelUseEventClient && lvl.isClientSide) {
                 shouldCancelUseEventClient = false;
                 event.setCanceled(true);
-                System.out.println("cancel client");
+              //  System.out.println("cancel client");
             }
         }
     }
@@ -70,7 +72,7 @@ public class DisplayEvents {
             if(!isPlateDisplayable(event.getItemStack())) return;
             if (state.is(DisplayBlocks.SMALL_PLATE.get()) || state.is(DisplayBlocks.PLATE.get()) ||
             state.getBlock() instanceof AbstractStackablePlatedFoodBlock || state.getBlock()  instanceof SmallPlatedFoodBlock){
-                System.out.println("set cancel");
+               // System.out.println("set cancel");
                 shouldCancelUseEventClient=true;
                 shouldCancelUseEventServer=true;
             }
@@ -100,8 +102,8 @@ public class DisplayEvents {
     @SubscribeEvent
     public static void onWorldLoad(LevelEvent.Load event) {
         if (event.getLevel() instanceof ServerLevel lvl) {
-            Block[] array = DisplayBlocks.getAll();
-            for (Block target : array) {
+
+            for (Block target : DisplayBlocks.getAll()) {
                 List<ItemStack> drops = Block.getDrops(target.defaultBlockState(), lvl, BlockPos.containing(0, 256, 0), null);
                 if (!drops.isEmpty() && drops.get(0).is(DisplayTags.DISPLAYABLE)) {
 

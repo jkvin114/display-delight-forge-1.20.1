@@ -12,7 +12,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SmallPlatedBlocks {
+    public static List<RegistryObject<Block>> blocks = new ArrayList<>() ;
+
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, DisplayDelight.MODID);
 
     public static final RegistryObject<Block> PLATED_CAKE_SLICE = createPlatedBlock("small_plated_cake_slice");
@@ -24,12 +29,6 @@ public class SmallPlatedBlocks {
     public static final RegistryObject<Block> PLATED_SALMON_ROLL = createPlatedBlock("small_plated_salmon_roll");
     public static final RegistryObject<Block> PLATED_KELP_ROLL_SLICE = createPlatedBlock("small_plated_kelp_roll_slice");
     public static final RegistryObject<Block> PLATED_CABBAGE_ROLLS = createPlatedBlock("small_plated_cabbage_rolls");
-
-    //EXPANDED DELIGHT
-    public static final RegistryObject<Block> ED_SWEET_ROLL = createPlatedBlock("ed_small_plated_sweet_roll");
-    public static final RegistryObject<Block> ED_BERRY_SWEET_ROLL = createPlatedBlock("ed_small_plated_berry_sweet_roll");
-    public static final RegistryObject<Block> ED_GLOW_BERRY_SWEET_ROLL = createPlatedBlock("ed_small_plated_glow_berry_sweet_roll");
-    public static final RegistryObject<Block> ED_CHEESE_SLICE = createPlatedBlock("ed_small_plated_cheese_slice");
 
     //DELIGHTFUL
     public static final RegistryObject<Block> DF_SALMONBERRY_PIE_SLICE = createPlatedBlock("df_small_plated_salmonberry_pie_slice");
@@ -52,33 +51,22 @@ public class SmallPlatedBlocks {
     public static final RegistryObject<Block> CTD_CUT_PICKLE= createPlatedBlock("ctd_small_plated_cut_pickle");
 
 
+
     private static BlockBehaviour.Properties baseProps() {
         return BlockBehaviour.Properties.of().noOcclusion()
                 .instabreak().pushReaction(PushReaction.DESTROY).mapColor(MapColor.COLOR_BROWN);
     }
 
-    private static RegistryObject<Block> createPlatedBlock(String name) {
-        return REGISTRY.register(name,
+    public static RegistryObject<Block> createPlatedBlock(String name) {
+        RegistryObject<Block> b= REGISTRY.register(name,
                 () -> new SmallPlatedFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
+        blocks.add(b);
+        return b;
     }
 
-    public static Block[] getAll() {
-        return new Block[]{
-                PLATED_APPLE_PIE_SLICE.get(), PLATED_CAKE_SLICE.get(),
-                PLATED_CHOCOLATE_PIE_SLICE.get(), PLATED_SWEET_BERRY_CHEESECAKE_SLICE.get(),
-                PLATED_STUFFED_POTATO.get(), PLATED_COD_ROLL.get(), PLATED_SALMON_ROLL.get(),
-                PLATED_KELP_ROLL_SLICE.get(), PLATED_CABBAGE_ROLLS.get(),
+    public static List<Block> getAll() {
+        return blocks.stream().map(RegistryObject::get).toList();
+    };
 
-                ED_SWEET_ROLL.get(), ED_BERRY_SWEET_ROLL.get(), ED_GLOW_BERRY_SWEET_ROLL.get(), ED_CHEESE_SLICE.get(),
-                DF_SALMONBERRY_PIE_SLICE.get(), DF_PUMPKIN_PIE_SLICE.get(),
-
-                PD_PINEAPPLE_PIE_SLICE.get(),
-
-                OD_ELDER_QUARDIAN_ROLL.get(), OD_FUGU_ROLL.get(),
-                CTD_CHICKEN_ROLL_SLICE.get(),CTD_MIDORI_ROLL_SLICE.get(),CTD_PUFFERFISH_ROLL.get(),
-                CTD_TROPICAL_ROLL.get(),CTD_RICE_BALL.get(),CTD_EGG_ROLL.get(),CTD_CALAMARI_ROLL.get(),CTD_CUT_PICKLE.get()
-
-        };
-    }
 }

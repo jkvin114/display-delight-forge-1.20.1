@@ -10,9 +10,15 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.*;
+import java.util.stream.Stream;
 
 
 public class DisplayBlocks {
+    public static List<RegistryObject<Block>> blocks = new ArrayList<>() ;
+
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS,DisplayDelight.MODID);
 
     public static final RegistryObject<Block> PLATE = REGISTRY.register("food_plate",
@@ -72,24 +78,8 @@ public class DisplayBlocks {
     public static final RegistryObject<Block> CD_CORN_SOUP = createFoodBlock("cd_corn_soup");
     public static final RegistryObject<Block> CD_CREAMED_CORN = createFoodBlock("cd_creamed_corn");
 
-    //Expanded delight
-    public static final RegistryObject<Block> ED_ASPARAGUS_SOUP = createFoodBlock("ed_asparagus_soup");
-    public static final RegistryObject<Block> ED_ASPARAGUS_SOUP_CREAMY = createFoodBlock("ed_asparagus_soup_creamy");
-    public static final RegistryObject<Block> ED_ASPARAGUS_AND_BACON_CHEESY = createWideFoodBlock("ed_asparagus_and_bacon_cheesy");
-    public static final RegistryObject<Block> ED_PEPERONATA = createWideFoodBlock("ed_peperonata");
-    public static final RegistryObject<Block> ED_PEANUT_HONEY_SOUP = createFoodBlock("ed_peanut_honey_soup");
-    public static final RegistryObject<Block> ED_MAC_AND_CHEESE = createFoodBlock("ed_mac_and_cheese");
-    public static final RegistryObject<Block> ED_PEANUT_SALAD = createFoodBlock("ed_peanut_salad");
-    public static final RegistryObject<Block> ED_SWEET_POTTATO_SALAD = createFoodBlock("ed_sweet_potato_salad");
 
-    public static final RegistryObject<Block> ED_CINNAMON_RICE = createFoodBlock("ed_cinnamon_rice");
-    public static final RegistryObject<Block> ED_CINNAMON_APPLES = createFoodBlock("ed_cinnamon_apples");
-
-    public static final RegistryObject<Block> ED_APPLE_JUICE = createDrinkFoodBlock("ed_apple_juice");
-    public static final RegistryObject<Block> ED_SWEET_BERRY_JUICE = createDrinkFoodBlock("ed_sweet_berry_juice");
-    public static final RegistryObject<Block> ED_GLOW_BERRY_JUICE = createDrinkFoodBlock("ed_glow_berry_juice");
 //delightful
-
     public static final RegistryObject<Block> DF_MATCHA_ICE_CREAM = createFoodBlock("df_matcha_ice_cream");
     public static final RegistryObject<Block> DF_MATCHA_MILKSHAKE= createDrinkFoodBlock("df_matcha_milkshake");
     public static final RegistryObject<Block> DF_SALMONBERRY_ICE_CREAM = createFoodBlock("df_salmonberry_ice_cream");
@@ -148,67 +138,40 @@ public class DisplayBlocks {
     public static final RegistryObject<Block> FD_CHRISTMAS_TEA = createDrinkFoodBlock("fd_christmas_tea");
     public static final RegistryObject<Block> FD_SALMON_VERRINES = createDrinkFoodBlock("fd_salmon_verrines");
 
-    public static Block[] getAll() {
-        return new Block[]{
 
 
-                FRUIT_SALAD.get(), GLOW_BERRY_CUSTARD.get(), COOKED_RICE.get(), MIXED_SALAD.get(),
-
-                BEEF_STEW.get(), CHICKEN_SOUP.get(), VEGETABLE_SOUP.get(), FISH_STEW.get(), FRIED_RICE.get(), PUMPKIN_SOUP.get(),
-                BAKED_COD_STEW.get(), NOODLE_SOUP.get(), BONE_BROTH.get(), BACON_AND_EGGS.get(), PASTA_WITH_MEATBALLS.get(),
-                PASTA_WITH_MUTTON_CHOP.get(), ROASTED_MUTTON_CHOPS.get(), STEAK_AND_POTATOES.get(), VEGETABLE_NOODLES.get(), RATATOUILLE.get(),
-                SQUID_INK_PASTA.get(), GRILLED_SALMON.get(), MUSHROOM_RICE.get(), ROAST_CHICKEN.get(), STUFFED_PUMPKIN.get(), HONEY_GLAZED_HAM.get(),
-                SHEPHEREDS_PIE.get(), APPLE_CIDER.get(), MELON_JUICE.get(), HOT_COCOA.get(),
-
-                MUSHROOM_STEW.get(), RABBIT_STEW.get(), BEETROOT_STEW.get(),
-
-                CD_NACHOS_BOWL.get(), CD_CREAMY_COR_DRINK.get(), CD_CORN_SOUP.get(), CD_CORNBREAD_STUFFING.get(), CD_CREAMED_CORN.get(),
-
-                ED_ASPARAGUS_SOUP.get(), ED_ASPARAGUS_SOUP_CREAMY.get(), ED_ASPARAGUS_AND_BACON_CHEESY.get(),
-                ED_PEPERONATA.get(), ED_PEANUT_HONEY_SOUP.get(), ED_MAC_AND_CHEESE.get(), ED_PEANUT_SALAD.get(),
-                ED_SWEET_POTTATO_SALAD.get(), ED_CINNAMON_RICE.get(), ED_CINNAMON_APPLES.get(),
-                ED_APPLE_JUICE.get(), ED_SWEET_BERRY_JUICE.get(), ED_GLOW_BERRY_JUICE.get(),
-
-                DF_MATCHA_ICE_CREAM.get(), DF_MATCHA_LATTE.get(), DF_MATCHA_MILKSHAKE.get(),
-                DF_SALMONBERRY_ICE_CREAM.get(), DF_SALMONBERRY_MILKSHAKE.get(), DF_ENDER_NECTAR.get(),
-                DF_BERRY_MATCHA_LATTE.get(), DF_CACTUS_CHILI.get(), DF_FIELD_SALAD.get(), DF_STUFFED_CANTALOUPE.get(),
-                DF_SINIGANG.get(), DF_CACTUS_SOUP.get(),
-
-                PD_PINEAPPLE_FRIED_RICE.get(), PD_PINEAPPLE_JUICE.get(), PD_PINEAPPLE_ICE_CREAM.get(), PD_PINEAPPLE_MILK_SHAKE.get(),
-
-                OD_SQUID_RINGS.get(), OD_BRAISED_SEA_PICKLE.get(), OD_SEAGRASS_SALAD.get(), OD_BOWL_OF_GUARDIAN_SOUP.get(),
-
-                AD_ACACIA_BLOSSOM_SOUP.get(), AD_KANGAROO_PASTA.get(), AD_KANGAROO_STEW.get(), AD_MAGGOT_SALAD.get(),
-                AD_LOBSTER_PASTA.get(),
-
-
-                CTD_HEARTY_SALAD.get(), CTD_CREAMED_CORN.get(), CTD_SPICY_CURRY.get(), CTD_FRIED_EGGPLANT_PASTA.get(),
-                LM_PUFFERFISH_BROTH.get(), LM_POTATO_SOUP.get(), LM_RED_SOUP.get(), LM_TOMATO_EGG_SOUP.get(),
-                LM_COD_DELUXE.get(), LM_HEARTY_LUNCH.get(), LM_CHICKEN_CURRY.get(), LM_PASTA_WITH_MUSHROOM_SAUCE.get(),
-                LM_OMURICE.get(), LM_MUSHROOM_POT_PIE.get(), LM_ROASTED_MUTTOH_RACK.get(), LM_SWEET_BERRY_CUSTARD.get(),
-                LM_RICE_PUDDING.get(),
-
-                FD_CHRISTMAS_TEA.get(),FD_FESTIVE_CHICKEN.get(),FD_SALMON_VERRINES.get()
-
-        };
+    public static List<Block> getAll() {
+        return blocks.stream().map(RegistryObject::get).toList();
     }
-    private  static BlockBehaviour.Properties baseProps(){
+    private static BlockBehaviour.Properties baseProps(){
         return   BlockBehaviour.Properties.of().noOcclusion().instabreak().pushReaction(PushReaction.DESTROY).mapColor(MapColor.NONE);
     }
 
-    private static RegistryObject<Block> createDrinkFoodBlock(String name){
-        return  REGISTRY.register(name,
+    public static RegistryObject<Block> createDrinkFoodBlock(String name){
+
+        RegistryObject<Block> block =  REGISTRY.register(name,
                 ()->new DrinkBlock(baseProps()
                         .sound(SoundType.GLASS)));
+
+        DisplayItems.registerBlockItem(block);
+        blocks.add(block);
+        return block;
     }
-    private static RegistryObject<Block> createWideFoodBlock(String name){
-        return  REGISTRY.register(name,
+    public static RegistryObject<Block> createWideFoodBlock(String name){
+        RegistryObject<Block> block= REGISTRY.register(name,
                 ()->new WideFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
+        blocks.add(block);
+        DisplayItems.registerBlockItem(block);
+
+        return block;
     }
-    private static RegistryObject<Block> createFoodBlock(String name){
-        return  REGISTRY.register(name,
+    public static RegistryObject<Block> createFoodBlock(String name){
+        RegistryObject<Block> block= REGISTRY.register(name,
                 ()->new FoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
+        blocks.add(block);
+        DisplayItems.registerBlockItem(block);
+        return block;
     }
 }
