@@ -1,6 +1,7 @@
 package com.jkvin114.displaydelight.init;
 
 import com.jkvin114.displaydelight.DisplayDelight;
+import com.jkvin114.displaydelight.item.FoodBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,8 +17,8 @@ public class DisplayItems {
     public static List<RegistryObject<Item>> items = new ArrayList<>() ;
 
     public static final DeferredRegister<Item> REGISTRY= DeferredRegister.create(ForgeRegistries.ITEMS, DisplayDelight.MODID);
-    public static final RegistryObject<Item> PLATE = block(DisplayBlocks.PLATE);
-    public static final RegistryObject<Item> SMALL_PLATE =  block(DisplayBlocks.SMALL_PLATE);
+    public static final RegistryObject<Item> PLATE = blockitem(DisplayBlocks.PLATE);
+    public static final RegistryObject<Item> SMALL_PLATE =  blockitem(DisplayBlocks.SMALL_PLATE);
 
     public static final RegistryObject<Item> FRUIT_SALAD = block(DisplayBlocks.FRUIT_SALAD);;
     public static final RegistryObject<Item> GLOW_BERRY_CUSTARD = block(DisplayBlocks.GLOW_BERRY_CUSTARD);
@@ -236,8 +237,12 @@ public class DisplayItems {
     public static final RegistryObject<Item> CTD_CUT_PICKLE = block(SmallPlatedBlocks.CTD_CUT_PICKLE);
 
 
+    public static RegistryObject<Item> blockitem(RegistryObject<Block> block) {
+
+        return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+    }
     public static RegistryObject<Item> block(RegistryObject<Block> block) {
-        RegistryObject<Item> item =  REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
+        RegistryObject<Item> item =  REGISTRY.register(block.getId().getPath(), () -> new FoodBlockItem(block.get(), new Item.Properties()));
         items.add(item);
         return  item;
     }

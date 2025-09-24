@@ -1,5 +1,6 @@
 package com.jkvin114.displaydelight.init;
 
+import com.jkvin114.displaydelight.item.FoodBlockItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -9,6 +10,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
+import net.minecraftforge.forgespi.language.IModInfo;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -54,6 +58,24 @@ public class BlockAssociations {
         put("edd_", "ends_delight");
         put("mnd_", "mynethersdelight");
     }};
+    private static final Map<String, String> FULL_MODNAMES = new HashMap<>() {{
+        put(FARMERSDELIGHT, "Farmer's Delight");
+        put("corn_delight", "Corn Delight");
+        put("expandeddelight", "Expanded Delight");
+        put("delightful", "Delightful");
+        put("pineapple_delight", "Pineapple Delight");
+        put("oceansdelight", "Ocean's Delight");
+        put("alexsdelight", "Alex's Delight");
+        put("culturaldelights", "Cultural Delights");
+        put("largemeals", "Large Meals");
+        put("festive_delight", "Festive Delight");
+        put("brewinandchewin", "Brewin' and Chewin'");
+        put("aquaculturedelight", "Aquaculture Delight");
+        put("endersdelight", "Ender Delight");
+        put("ends_delight", "End's Delight");
+        put("mynethersdelight", "My Nether's Delight");
+    }};
+
     public static Block getBlockFor(Item i) {
         return blockMap.getOrDefault(i, Blocks.AIR);
     }
@@ -93,7 +115,7 @@ public class BlockAssociations {
     }
     private static String removeFirstPrefix(String s, Iterable<String> prefixes) {
         for (String prefix : prefixes) {
-            if (s.startsWith(prefix)) {
+            if (!prefix.isEmpty() && s.startsWith(prefix)) {
                 return s.substring(prefix.length());
             }
         }
@@ -128,12 +150,10 @@ public class BlockAssociations {
                 allPrefixes.add(cp + tp);
             }
         }
-
         for (Item item : allItems) {
-            if (!(item instanceof BlockItem)) continue;
-            ;
-            if (item.equals(DisplayItems.PLATE.get()) || item.equals(DisplayItems.SMALL_PLATE.get())) continue;
+            if (!(item instanceof FoodBlockItem)) continue;
 
+            if (item.equals(DisplayItems.PLATE.get()) || item.equals(DisplayItems.SMALL_PLATE.get())) continue;
 
             try {
                 String itemId = BuiltInRegistries.ITEM.getKey(item).getPath();
@@ -150,6 +170,11 @@ public class BlockAssociations {
                     } else {
                         fullNamespace = FARMERSDELIGHT;
                     }
+                }
+
+                if(!fullNamespace.equals(MINECRAFT) && !ModList.get().isLoaded(fullNamespace)){
+                     String name = FULL_MODNAMES.getOrDefault(fullNamespace,"");
+                     ((FoodBlockItem) item).setRequiredModName(name);
                 }
 
                 LOGGER.info("Registering {} as {} from {}", itemId, foodName, fullNamespace);
