@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class EmptyPlateBlock extends HorizontalDirectionalBlock {
+public class EmptyPlateBlock extends Block {
 
     public EmptyPlateBlock(Properties properties) {
         super(properties);

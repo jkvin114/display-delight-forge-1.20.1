@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -23,7 +24,7 @@ public abstract class AbstractStackablePlatedFoodBlock extends AbstractItemBlock
 
     public AbstractStackablePlatedFoodBlock(BlockBehaviour.Properties props) {
         super(props);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(STACKS, 1));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(STACKS, 6));
     }
 
     public BlockState getStateFrom(BlockState plate,Direction direction,int count) {
@@ -33,7 +34,11 @@ public abstract class AbstractStackablePlatedFoodBlock extends AbstractItemBlock
     }
     @Override
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-        return this.getStackFor();
+        ItemStack stk= this.getStackFor();
+        if(stk.getItem().equals(Items.AIR)){
+            stk = new ItemStack(state.getBlock().asItem());
+        }
+        return  stk;
     }
 
     public ItemStack getStackFor() {
@@ -48,8 +53,14 @@ public abstract class AbstractStackablePlatedFoodBlock extends AbstractItemBlock
     public int getStacks(BlockState state) {
         return state.getValue(STACKS);
     }
+
     public BlockState getDecrementedState(BlockState state) {
-        return state.setValue(STACKS, Math.max(this.getStacks(state) - 1,1));
+        int stk = this.getStacks(state) - 1;
+        if(this.getStacks(state) >= this.getMaxStackable()){
+            stk = this.getMaxStackable() - 1;
+        }
+
+        return state.setValue(STACKS, Math.max(1,stk));
     }
 
     public BlockState getIncrementedState(BlockState state,int count) {

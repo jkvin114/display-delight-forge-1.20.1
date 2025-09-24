@@ -1,8 +1,12 @@
 package com.jkvin114.displaydelight.block;
 
 import com.jkvin114.displaydelight.init.BlockAssociations;
+import com.jkvin114.displaydelight.init.DisplayItems;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.SupportType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.FluidState;
@@ -11,9 +15,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -22,6 +23,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.util.RandomSource;
 import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 public abstract class AbstractItemBlock extends HorizontalDirectionalBlock {
 
@@ -32,8 +36,40 @@ public abstract class AbstractItemBlock extends HorizontalDirectionalBlock {
 
 
     @Override
+    public @NotNull List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
+        List<ItemStack> droppedStacks = super.getDrops(state, params);
+        Block block = state.getBlock();
+        Item foodItem = getStackFor().getItem();
+        boolean fallBack = false;
+
+        if (foodItem.equals(Items.AIR)) {
+            foodItem = this.asItem();
+            fallBack = true;
+        }
+
+        if (block instanceof AbstractStackablePlatedFoodBlock platedFoodBlock) {
+            droppedStacks.add(new ItemStack(foodItem, !fallBack ? platedFoodBlock.getStacks(state) : 1));
+
+            if (!fallBack) droppedStacks.add(new ItemStack(DisplayItems.PLATE.get()));
+
+        } else if (block instanceof SmallPlatedFoodBlock) {
+            droppedStacks.add(new ItemStack(foodItem));
+            if (!fallBack) droppedStacks.add(new ItemStack(DisplayItems.SMALL_PLATE.get()));
+
+        } else {
+            droppedStacks.add(new ItemStack(foodItem));
+        }
+
+        return droppedStacks;
+    }
+
+    @Override
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
-        return this.getStackFor();
+        ItemStack stk= this.getStackFor();
+        if(stk.getItem().equals(Items.AIR)){
+            stk = new ItemStack(state.getBlock().asItem());
+        }
+        return  stk;
     }
 
     @Override

@@ -34,7 +34,7 @@ public class SmallPlatedBlocks {
     public static final RegistryObject<Block> DF_SALMONBERRY_PIE_SLICE = createPlatedBlock("df_small_plated_salmonberry_pie_slice");
     public static final RegistryObject<Block> DF_PUMPKIN_PIE_SLICE = createPlatedBlock("df_small_plated_pumpkin_pie_slice");
 
-    public static final RegistryObject<Block> PD_PINEAPPLE_PIE_SLICE = createPlatedBlock("pd_small_plated_pineapple_pie_slice");
+    public static final RegistryObject<Block> PD_PINEAPPLE_PIE_SIDE = createPlatedBlock("pd_small_plated_pineapple_pie_side");
 
     //oceans delight
     public static final RegistryObject<Block> OD_ELDER_QUARDIAN_ROLL = createPlatedBlock("od_small_plated_elder_guardian_roll");
@@ -45,7 +45,7 @@ public class SmallPlatedBlocks {
     public static final RegistryObject<Block> CTD_MIDORI_ROLL_SLICE = createPlatedBlock("ctd_small_plated_midori_roll_slice");
     public static final RegistryObject<Block> CTD_PUFFERFISH_ROLL = createPlatedBlock("ctd_small_plated_pufferfish_roll");
     public static final RegistryObject<Block> CTD_TROPICAL_ROLL = createPlatedBlock("ctd_small_plated_tropical_roll");
-    public static final RegistryObject<Block> CTD_RICE_BALL = createPlatedBlock("ctd_small_plated_rice_ball");
+    //public static final RegistryObject<Block> CTD_RICE_BALL = createPlatedBlock("ctd_small_plated_rice_ball");
     public static final RegistryObject<Block> CTD_EGG_ROLL = createPlatedBlock("ctd_small_plated_egg_roll");
     public static final RegistryObject<Block> CTD_CALAMARI_ROLL = createPlatedBlock("ctd_small_plated_calamari_roll");
     public static final RegistryObject<Block> CTD_CUT_PICKLE= createPlatedBlock("ctd_small_plated_cut_pickle");

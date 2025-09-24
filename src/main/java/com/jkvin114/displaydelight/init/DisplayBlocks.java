@@ -10,7 +10,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -153,7 +152,7 @@ public class DisplayBlocks {
                 ()->new DrinkBlock(baseProps()
                         .sound(SoundType.GLASS)));
 
-        DisplayItems.registerBlockItem(block);
+     //   DisplayItems.registerBlockItem(block);
         blocks.add(block);
         return block;
     }
@@ -162,7 +161,7 @@ public class DisplayBlocks {
                 ()->new WideFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
         blocks.add(block);
-        DisplayItems.registerBlockItem(block);
+      //  DisplayItems.registerBlockItem(block);
 
         return block;
     }
@@ -171,7 +170,7 @@ public class DisplayBlocks {
                 ()->new FoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
         blocks.add(block);
-        DisplayItems.registerBlockItem(block);
+    //    DisplayItems.registerBlockItem(block);
         return block;
     }
 }
