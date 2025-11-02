@@ -15,6 +15,11 @@ public class DisplayTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.literal("Display Delight"))
                     .icon(() -> new ItemStack(DisplayItems.GRILLED_SALMON.get()))
-                    .displayItems((parameters, output) -> DisplayItems.GetAll().forEach((item) -> output.accept(item)))
+                    .displayItems((parameters, output) -> {
+
+                        output.accept(DisplayItems.PLATE.get());
+                        output.accept(DisplayItems.SMALL_PLATE.get());
+                        DisplayItems.GetAll().forEach(output::accept);
+                    })
                     .build());
 }

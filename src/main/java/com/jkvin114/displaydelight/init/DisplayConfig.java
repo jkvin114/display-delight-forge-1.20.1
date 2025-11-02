@@ -12,6 +12,10 @@ public class DisplayConfig {
     public static final ForgeConfigSpec.BooleanValue MESSAGE;
     public static final ForgeConfigSpec.BooleanValue DISABLE_VANILLA_FOODS;
     public static final ForgeConfigSpec.BooleanValue DISABLE_EATING_ANIMATION_FIX;
+
+    public static final ForgeConfigSpec.BooleanValue SILKTOUCH_DROPS_FOOD_BLOCK_ITEM;
+    public static final ForgeConfigSpec.BooleanValue WANDERING_TRADER_FOOD_BLOCK_ITEMS;
+
     static {
         BUILDER.push("Features");
         DISABLE_VANILLA_FOODS = BUILDER
@@ -24,6 +28,10 @@ public class DisplayConfig {
 
         MESSAGE = BUILDER.comment("Should a message be enabled when attempting to place a food item?")
                 .define("Display-Message", true);
+        SILKTOUCH_DROPS_FOOD_BLOCK_ITEM = BUILDER.comment("Whether to drop the food block item when food block is broken by silktouch")
+                .define("SilkTouchDropFoodBlock", true);
+        WANDERING_TRADER_FOOD_BLOCK_ITEMS = BUILDER.comment("Should wandering traders sell food block items that are unobtainable in survival due to missing compat?")
+                .define("WanderingTraderSellFoodBlock", true);
         BUILDER.pop();
         CONFIG = BUILDER.build();
     }

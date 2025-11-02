@@ -1,6 +1,8 @@
 package com.jkvin114.displaydelight.init;
 
+import com.jkvin114.displaydelight.block.HotDrinkBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraftforge.registries.RegistryObject;
 
 public  class RegisterHelper {

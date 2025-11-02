@@ -4,6 +4,7 @@ import com.jkvin114.displaydelight.item.FoodBlockItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
@@ -14,10 +15,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 import net.minecraftforge.forgespi.language.IModInfo;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.*;
 
 import static com.jkvin114.displaydelight.DisplayDelight.LOGGER;
 
@@ -57,7 +55,13 @@ public class BlockAssociations {
         put("erd_", "endersdelight");
         put("edd_", "ends_delight");
         put("mnd_", "mynethersdelight");
+        put("nd_", "nethersdelight");
+        put("crd_", "crabbersdelight");
     }};
+    private static final Set<String> NO_WANDERING_TRADER = Set.of(
+            "nethersdelight"
+    );
+
     private static final Map<String, String> FULL_MODNAMES = new HashMap<>() {{
         put(FARMERSDELIGHT, "Farmer's Delight");
         put("corn_delight", "Corn Delight");
@@ -66,15 +70,28 @@ public class BlockAssociations {
         put("pineapple_delight", "Pineapple Delight");
         put("oceansdelight", "Ocean's Delight");
         put("alexsdelight", "Alex's Delight");
+
         put("culturaldelights", "Cultural Delights");
         put("largemeals", "Large Meals");
         put("festive_delight", "Festive Delight");
         put("brewinandchewin", "Brewin' and Chewin'");
         put("aquaculturedelight", "Aquaculture Delight");
-        put("endersdelight", "Ender Delight");
+        put("endersdelight", "Ender's Delight");
         put("ends_delight", "End's Delight");
         put("mynethersdelight", "My Nether's Delight");
+        put("nethersdelight", "Nether's Delight");
+        put("crabbersdelight", "Crabber's Delight");
     }};
+
+    public static final List<Item> TRADEABLE_DRINKS = new ArrayList<>();
+    public static final List<Item> TRADEABLE_FOODS = new ArrayList<>();
+    public static final List<Item> TRADEABLE_PLATES = new ArrayList<>();
+    public static final List<Item> TRADEABLE_SMALL_PLATES = new ArrayList<>();
+    private static Item[] ALL_ITEMS = new Item[]{};
+
+    public static Item getRandomItem(RandomSource random){
+        return ALL_ITEMS[random.nextInt(ALL_ITEMS.length)];
+    }
 
     public static Block getBlockFor(Item i) {
         return blockMap.getOrDefault(i, Blocks.AIR);
@@ -175,9 +192,30 @@ public class BlockAssociations {
                 if(!fullNamespace.equals(MINECRAFT) && !ModList.get().isLoaded(fullNamespace)){
                      String name = FULL_MODNAMES.getOrDefault(fullNamespace,"");
                      ((FoodBlockItem) item).setRequiredModName(name);
+                    boolean soldByTrader  =true;
+
+                    //exclude nethersdelight foods from wandering trader trades
+                    if(NO_WANDERING_TRADER.contains(fullNamespace)){
+                        soldByTrader  =false;
+                    }
+
+                    if(soldByTrader){
+                        if(((FoodBlockItem) item).isDrink){
+                            TRADEABLE_DRINKS.add(item);
+                        }
+                        else if(foodNameWithPlate.startsWith("plated_")){
+                            TRADEABLE_PLATES.add(item);
+                        }else if(foodNameWithPlate.startsWith("small_plated_")){
+                            TRADEABLE_SMALL_PLATES.add(item);
+                        }
+                        else{
+                            TRADEABLE_FOODS.add(item);
+                        }
+                    }
+
                 }
 
-                LOGGER.info("Registering {} as {} from {}", itemId, foodName, fullNamespace);
+               // LOGGER.info("Registering {} as {} from {}", itemId, foodName, fullNamespace);
 
                 Item registeredFoodItem = BuiltInRegistries.ITEM.get(ResourceLocation.tryBuild(fullNamespace, foodName));
                 if (registeredFoodItem == Items.AIR) {
@@ -202,6 +240,14 @@ public class BlockAssociations {
             } catch (Exception e) {
                 LOGGER.error("Failed to set block association for {}", BuiltInRegistries.ITEM.getKey(item).getPath(), e);
             }
+
+
         }
+
+        List<Item> combined = new ArrayList<>();
+        combined.addAll(blockMap.keySet());
+        combined.addAll(plateBlockMap.keySet());
+        combined.addAll(smallplateBlockMap.keySet());
+        ALL_ITEMS = combined.toArray(Item[]::new);
     }
 }

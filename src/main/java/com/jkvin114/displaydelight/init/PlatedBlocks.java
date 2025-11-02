@@ -3,6 +3,7 @@ package com.jkvin114.displaydelight.init;
 import com.jkvin114.displaydelight.DisplayDelight;
 import com.jkvin114.displaydelight.block.SimplePlatedFoodBlock;
 import com.jkvin114.displaydelight.block.StackablePlateFoodBlock;
+import com.jkvin114.displaydelight.block.fiery.FieryPlatedFoodBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -94,6 +95,38 @@ public class PlatedBlocks {
     public static final RegistryObject<Block> CTD_EGG_ROLL = createStackablePlatedBlock("ctd_plated_egg_roll",6);
     public static final RegistryObject<Block> CTD_CALAMARI_ROLL = createStackablePlatedBlock("ctd_plated_calamari_roll",6);
 
+    public static final RegistryObject<Block> ACD_PLATED_CATFISH_BARBECUE = createStackablePlatedBlock("acd_plated_catfish_barbecue",3);
+    public static final RegistryObject<Block> BNC_PLATED_HAM_AND_CHEESE_SANDWICH = createPlatedBlock("bnc_plated_ham_and_cheese_sandwich");
+    public static final RegistryObject<Block> ED_PLATED_CRANBERRY_GOAT_CHEESE_TOAST = createPlatedBlock("ed_plated_cranberry_goat_cheese_toast");
+    public static final RegistryObject<Block> ERD_PLATED_UNCANNY_COOKIES = createStackablePlatedBlock("erd_plated_uncanny_cookies",4);
+    public static final RegistryObject<Block> ERD_PLATED_CRISPY_SKEWER = createStackablePlatedBlock("erd_plated_crispy_skewer",3);
+    public static final RegistryObject<Block> ERD_PLATED_STRANGE_ECLAIR = createStackablePlatedBlock("erd_plated_strange_eclair",3);
+    public static final RegistryObject<Block> ERD_PLATED_CRAWLING_SANDWICH = createStackablePlatedBlock("erd_plated_crawling_sandwich",2);
+    public static final RegistryObject<Block> EDD_PLATED_STUFFED_RICE_CAKE = createStackablePlatedBlock("edd_plated_stuffed_rice_cake",3);
+    public static final RegistryObject<Block> EDD_PLATED_CHORUS_FLOWER_PIE = createPlatedBlock("edd_plated_chorus_flower_pie");
+    public static final RegistryObject<Block> EDD_PLATED_ENDER_BAMBOO_RICE = createStackablePlatedBlock("edd_plated_ender_bamboo_rice",2);
+    public static final RegistryObject<Block> EDD_PLATED_CHORUS_FRUIT_POPSICLE = createStackablePlatedBlock("edd_plated_chorus_fruit_popsicle",2);
+    public static final RegistryObject<Block> EDD_PLATED_END_BARBECUE_STICK = createStackablePlatedBlock("edd_plated_end_barbecue_stick",3);
+
+    public static final RegistryObject<Block> MND_PLATED_STUFFED_PEPPER = createStackablePlatedBlock("mnd_plated_stuffed_pepper",2);
+    public static final RegistryObject<Block> MND_PLATED_HOTDOG_WITH_MIXED_SALAD = createStackablePlatedBlock("mnd_plated_hotdog_with_mixed_salad",2);
+    public static final RegistryObject<Block> MND_PLATED_HOTDOG_WITH_NETHER_SALAD = createStackablePlatedBlock("mnd_plated_hotdog_with_nether_salad",2);
+    public static final RegistryObject<Block> MND_PLATED_CHILIDOG = createFieryStackablePlatedBlock("mnd_plated_chilidog",2);
+    public static final RegistryObject<Block> MND_PLATED_SPICY_COTTON = createPlatedBlock("mnd_plated_spicy_cotton");
+    public static final RegistryObject<Block> MND_PLATED_FRIES_GHASTA = createStackablePlatedBlock("mnd_plated_fries_ghasta",2);
+    public static final RegistryObject<Block> MND_PLATED_SPICY_SKEWER = createStackablePlatedBlock("mnd_plated_spicy_skewer",2);
+    public static final RegistryObject<Block> MND_PLATED_RED_LOIN_ON_A_STICK = createStackablePlatedBlock("mnd_plated_red_loin_on_a_stick",3);
+    public static final RegistryObject<Block> MND_PLATED_NETHER_BURGER = createPlatedBlock("mnd_plated_nether_burger");
+    public static final RegistryObject<Block> MND_PLATED_BACON_WRAPPED_SAUSAGE_STICK = createStackablePlatedBlock("mnd_plated_bacon-wrapped_sausage_on_a_stick",2);
+
+    public static final RegistryObject<Block> ND_NETHER_SKEWER = createStackablePlatedBlock("nd_plated_nether_skewer",2);
+
+    public static final RegistryObject<Block> CRD_FROG_LEG_KEBAB = createPlatedBlock("crd_plated_frog_leg_kebab");
+    public static final RegistryObject<Block> CRD_SQUID_KEBAB = createPlatedBlock("crd_plated_squid_kebab");
+    public static final RegistryObject<Block> CRD_SHRIMP_SKEWER = createStackablePlatedBlock("crd_plated_shrimp_skewer",2);
+    public static final RegistryObject<Block> CRD_FISH_STICK = createPlatedBlock("crd_plated_fish_stick");
+    public static final RegistryObject<Block> CRD_STUFFED_NAUTILUS_SHELL = createPlatedBlock("crd_plated_stuffed_nautilus_shell");
+
 
 
     private static BlockBehaviour.Properties baseProps() {
@@ -113,6 +146,14 @@ public class PlatedBlocks {
         RegistryObject<Block> b = REGISTRY.register(name,
                 () -> new SimplePlatedFoodBlock(baseProps()
                         .sound(SoundType.WOOD)));
+        blocks.add(b);
+        return b;
+    }
+
+    private static RegistryObject<Block> createFieryStackablePlatedBlock(String name,int maxStacks){
+        RegistryObject<Block> b =  REGISTRY.register(name,
+                ()->new FieryPlatedFoodBlock(baseProps()
+                        .sound(SoundType.WOOD),maxStacks));
         blocks.add(b);
         return b;
     }

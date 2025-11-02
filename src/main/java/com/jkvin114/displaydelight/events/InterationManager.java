@@ -17,6 +17,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,8 +34,13 @@ public class InterationManager {
         BlockState state = world.getBlockState(pos);
         if (state.getBlock() instanceof AbstractStackablePlatedFoodBlock target) {
             Item plateItem = BlockAssociations.getPlatedItemFor(target);
+
+            if(plateItem == Items.AIR && !player.isCreative()){
+                return false;
+            }
+
             int count = 1;
-            if(player.isCrouching()){
+            if(player.isShiftKeyDown()){
                 count = target.getStacks(state);
                 world.setBlock(pos, DisplayBlocks.PLATE.get().defaultBlockState(), 2);
             }
@@ -124,7 +130,7 @@ public class InterationManager {
 
             if (handStack.is(target.getStackFor().getItem()) && target.getStacks(state) < target.getMaxStackable()) {
                 int count = 1;
-                if (player.isCrouching()) {
+                if (player.isShiftKeyDown()) {
                     int stacksLeft = target.getMaxStackable() - target.getStacks(state);
                     count = player.isCreative() ? stacksLeft : Math.min(stacksLeft, handStack.getCount());
                 }
@@ -141,7 +147,7 @@ public class InterationManager {
             if (!(plateBlock instanceof AbstractStackablePlatedFoodBlock target)) return false;
             int count = 1;
 
-            if (player.isCrouching()) {
+            if (player.isShiftKeyDown()) {
                 int stacksLeft = target.getMaxStackable();
                 count = player.isCreative() ? stacksLeft : Math.min(stacksLeft, handStack.getCount());
             }
@@ -166,7 +172,7 @@ public class InterationManager {
         ItemStack stack = player.getItemInHand(handy);
         if (!stack.is(DisplayTags.DISPLAYABLE)) return false;
         BlockPos pos = rez.getBlockPos();
-        if (player.isCrouching()) {
+        if (player.isShiftKeyDown()) {
 
             Block target = BlockAssociations.getBlockFor(stack.getItem());
             if (target.asItem().useOn(new UseOnContext(player, handy, rez)) == InteractionResult.CONSUME) {
